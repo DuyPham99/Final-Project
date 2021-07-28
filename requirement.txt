@@ -1,0 +1,26 @@
+- Chức năng
++ Bán hàng, bán sản phẩm
++ Chat-box tư vấn sản phẩm (text, voice)
++ Giỏ hàng
++ Quản lý đăng bán sản phẩm
++ Quản lý đơn hàng
++ Mã hóa đăng nhập admin bằng token
++ Chăm sóc và đánh giá nhận xét của khác hàng bằng bot.
+++ Schedual đặt lịch tự động thực hiện cuộc gọi, lấy thông tin từ khách hàng.
++ Review sản phẩm
+
+
+- Frontend
++ Có đầy đủ các site cơ bản(giao diện sản phẩm, giỏ hàng, thanh tìm kiếm, chat-box)
+
+- Backend:
++ Spring framework, hibernate, MYSQL
+
+
+=====
+Tiếp nhận và xử lý đơn hàng
+Quản lý giao hàng
+Thanh toán tiền
+Đánh giá review về sản phẩm hay dịch vụ
+Tư vấn sản phẩm phù hợp, sử dụng voice và text
+Dùng chatbot tra cứu các thủ tục- hướng dẫn mua hàng trên website

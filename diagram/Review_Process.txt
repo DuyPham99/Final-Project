@@ -1,0 +1,15 @@
+title Quá Trình Đánh Giá Sản Phẩm
+
+participant Customer
+participant View
+participant Order
+participant Review
+
+
+
+Customer->View: Nhập thông tin người đánh giá
+View->Order: Check lịch sử mua hàng
+Order->View: Đã mua hàng
+View->Customer: Trả về giao diện viết review
+Customer->View: Viết review
+View->Review: Submit review

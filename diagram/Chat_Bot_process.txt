@@ -1,0 +1,14 @@
+title Quá Trình Hỗ Trợ Của Chat-bot
+
+participant Customer
+participant Chat-bot
+participant Admin
+
+loop process=false
+Customer->Chat-bot: Phát sinh yêu cầu (hỏi đáp, tư vấn, hỗ trợ...)
+Chat-bot->Customer: Xử lý và trả về kết quả
+end
+Chat-bot->Admin: Chuyển yêu cầu không thể xử lý đến người hỗ trợ
+Admin->Customer: Trả về kết quả
+
+

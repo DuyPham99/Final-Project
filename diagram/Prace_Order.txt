@@ -1,0 +1,30 @@
+title Quá Trình Xử Lý Một Đơn Hàng
+
+participant Customer
+participant Product
+participant Shoping_Cart
+participant Order
+participant Stock
+participant Admin
+participant Payment
+participant Shipping
+
+loop isPlaceOrder==FALSE
+Customer->Product: chọn sản phẩm
+Product->Stock: kiểm tra số lượng hàng tồn
+Stock->Shoping_Cart:[inStock==true] thêm vào giỏ hàng
+end
+
+Customer-> Admin: đặt hàng
+Admin->Shipping: xác nhận và chọn đơn vị vận chuyển
+Shipping->Admin: trả về thông tin đơn vị
+Admin->Payment: xác nhận nhận hình thức thanh toán
+Payment->Admin: trả về thông tin thanh toán
+Admin->Customer: yêu cầu thanh toán
+Customer->Admin: thanh toán
+Admin->Order: tạo đơn hàng
+Order->Stock: kiểm tra số lượng hàng tồn lúc đặt mua
+Stock->Order: [inStock = true]
+Order->Order: tạo hóa đơn
+Order->Stock: thay đổi số lượng sản phẩm trong kho
+
