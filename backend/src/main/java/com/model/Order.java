@@ -22,11 +22,15 @@ public class Order{
 
     @OneToOne
     @JoinColumn(name = "order_detail_id")
-    private Order_Detail orderDetail;
+    private OrderDetail orderDetail;
 
     @OneToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    @OneToOne
+    @JoinColumn(name = "shipping_id")
+    private Shipping shipping;
 
     public long getId_order() {
         return id_order;
@@ -60,11 +64,11 @@ public class Order{
         this.payment = payment;
     }
 
-    public Order_Detail getOrderDetail() {
+    public OrderDetail getOrderDetail() {
         return orderDetail;
     }
 
-    public void setOrderDetail(Order_Detail orderDetail) {
+    public void setOrderDetail(OrderDetail orderDetail) {
         this.orderDetail = orderDetail;
     }
 

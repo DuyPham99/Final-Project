@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,9 +21,9 @@ public class WarrantyHistory {
 
     private String product_id;
 
-//    @ManyToOne
-//    @JoinColumn(name = "order_id")
-//    private Order order;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
 
     public long getId_warranty_history() {
         return id_warranty_history;

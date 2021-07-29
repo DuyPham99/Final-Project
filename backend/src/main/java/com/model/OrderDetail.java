@@ -6,7 +6,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Order_Detail {
+public class OrderDetail {
     @Id
     private long id_order_detail;
 
