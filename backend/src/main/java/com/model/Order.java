@@ -3,6 +3,7 @@ package com.model;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Id;
 
 @Entity
 public class Order{

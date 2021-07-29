@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,9 +19,9 @@ public class WarrantyHistory {
 
     private String product_id;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+//    @ManyToOne
+//    @JoinColumn(name = "order_id")
+//    private Order order;
 
     public long getId_warranty_history() {
         return id_warranty_history;
@@ -65,23 +63,23 @@ public class WarrantyHistory {
         this.product_id = product_id;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    @Override
-    public String toString() {
-        return "WarrantyHistory{" +
-                "id_warranty_history=" + id_warranty_history +
-                ", description='" + description + '\'' +
-                ", date=" + date +
-                ", status=" + status +
-                ", product_id='" + product_id + '\'' +
-                ", order=" + order +
-                '}';
-    }
+//    public Order getOrder() {
+//        return order;
+//    }
+//
+//    public void setOrder(Order order) {
+//        this.order = order;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "WarrantyHistory{" +
+//                "id_warranty_history=" + id_warranty_history +
+//                ", description='" + description + '\'' +
+//                ", date=" + date +
+//                ", status=" + status +
+//                ", product_id='" + product_id + '\'' +
+//                ", order=" + order +
+//                '}';
+//    }
 }
