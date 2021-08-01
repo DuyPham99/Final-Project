@@ -14,7 +14,7 @@ public class Sale {
 
     @OneToOne
     @JoinColumn(name = "product_option_id")
-    private ProductOption product_option;
+    private ProductOption productOption;
 
     public long getId_sale() {
         return id_sale;
@@ -32,12 +32,12 @@ public class Sale {
         this.discount = discount;
     }
 
-    public ProductOption getProduct_option() {
-        return product_option;
+    public ProductOption getProductOption() {
+        return productOption;
     }
 
-    public void setProduct_option(ProductOption product_option) {
-        this.product_option = product_option;
+    public void setProductOption(ProductOption product_option) {
+        this.productOption = product_option;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Sale {
         return "Sale{" +
                 "id_sale=" + id_sale +
                 ", discount=" + discount +
-                ", product_option=" + product_option +
+                ", product_option=" + productOption +
                 '}';
     }
 }

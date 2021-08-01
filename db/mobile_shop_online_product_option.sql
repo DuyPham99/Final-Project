@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `product_option`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `product_option` (
   `id_product_option` bigint NOT NULL,
-  `color` bigint NOT NULL,
+  `color` bigint DEFAULT NULL,
   `images` varchar(255) DEFAULT NULL,
-  `memory` bigint NOT NULL,
-  `price` float NOT NULL,
-  `storage` bigint NOT NULL,
+  `memory` bigint DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `storage` bigint DEFAULT NULL,
   `product_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id_product_option`),
   KEY `FKn4hmm6ex1vgn60c6uiqte400f` (`product_id`),
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-29 22:52:29
+-- Dump completed on 2021-08-02  0:56:07

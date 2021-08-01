@@ -28,7 +28,10 @@ CREATE TABLE `warranty_history` (
   `description` varchar(255) DEFAULT NULL,
   `product_id` varchar(255) DEFAULT NULL,
   `status` int NOT NULL,
-  PRIMARY KEY (`id_warranty_history`)
+  `order_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_warranty_history`),
+  KEY `FKd24h085b691tde5ek492ab7u1_idx` (`order_id`),
+  CONSTRAINT `FKd24h085b691tde5ek492ab7u1` FOREIGN KEY (`order_id`) REFERENCES `order` (`id_order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-29 22:52:28
+-- Dump completed on 2021-08-02  0:56:06

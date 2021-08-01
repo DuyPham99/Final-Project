@@ -1,14 +1,17 @@
 package com.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.*;
 
 @Entity(name = "product_option")
+@Data
 public class ProductOption {
     @Id
-    private long id_product_option;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idProductOption;
 
     private float price;
 
@@ -20,70 +23,22 @@ public class ProductOption {
 
     private String images;
 
+    @OneToOne(mappedBy = "productOption", cascade = CascadeType.ALL)
+    private Sale sale;
+
+    @OneToOne(mappedBy = "productOption")
+    private Stock stock;
+
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @Getter(value = AccessLevel.NONE)
+    @JsonBackReference
     private Product product;
-
-    public long getId_product_option() {
-        return id_product_option;
-    }
-
-    public void setId_product_option(long id_product_option) {
-        this.id_product_option = id_product_option;
-    }
-
-    public float getPrice() {
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public long getColor() {
-        return color;
-    }
-
-    public void setColor(long color) {
-        this.color = color;
-    }
-
-    public long getMemory() {
-        return memory;
-    }
-
-    public void setMemory(long memory) {
-        this.memory = memory;
-    }
-
-    public long getStorage() {
-        return storage;
-    }
-
-    public void setStorage(long storage) {
-        this.storage = storage;
-    }
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 
     @Override
     public String toString() {
         return "ProductOption{" +
-                "id_product_option=" + id_product_option +
+                "id_product_option=" + idProductOption +
                 ", price=" + price +
                 ", color=" + color +
                 ", memory=" + memory +

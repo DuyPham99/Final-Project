@@ -1,64 +1,57 @@
 package com.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import org.hibernate.annotations.Fetch;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Entity(name = "product")
+@Data
 public class Product {
     @Id
-    private long id_product;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
+    private long idProduct;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String description;
 
+    @NotNull
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate published;
 
     @OneToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    @OneToMany
-    @JoinColumn(name = "review_id")
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<Review> reviews;
 
-    public long getId_product() {
-        return id_product;
-    }
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    @NotNull
+    @JsonManagedReference
+    private List<ProductOption> productOptions;
 
-    public void setId_product(long id_product) {
-        this.id_product = id_product;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDate getPublished() {
-        return published;
-    }
-
-    public void setPublished(LocalDate published) {
-        this.published = published;
-    }
+    @OneToOne(mappedBy = "product")
+    @NotNull
+    private Warranty warranty;
 
     @Override
     public String toString() {
         return "Product{" +
-                "id_product=" + id_product +
+                "id_product=" + idProduct +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", published=" + published +

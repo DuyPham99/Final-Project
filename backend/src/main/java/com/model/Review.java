@@ -1,8 +1,8 @@
 package com.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import lombok.Data;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,48 +19,10 @@ public class Review {
     @OneToOne
     private Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 //    private Order order;
-
-
-    public long getId_review() {
-        return id_review;
-    }
-
-    public void setId_review(long id_review) {
-        this.id_review = id_review;
-    }
-
-    public String getFeedback() {
-        return feedback;
-    }
-
-    public void setFeedback(String feedback) {
-        this.feedback = feedback;
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public LocalDateTime getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
     @Override
     public String toString() {

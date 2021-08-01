@@ -28,12 +28,12 @@ CREATE TABLE `review` (
   `feedback` varchar(255) DEFAULT NULL,
   `rating` int NOT NULL,
   `customer_id_customer` bigint DEFAULT NULL,
-  `review_id` bigint DEFAULT NULL,
+  `product_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id_review`),
   KEY `FKqng4q0dcx13ufedmbv0p6rlo4` (`customer_id_customer`),
-  KEY `FKqtivt0sk6wf3ftdlxvespj6up` (`review_id`),
-  CONSTRAINT `FKqng4q0dcx13ufedmbv0p6rlo4` FOREIGN KEY (`customer_id_customer`) REFERENCES `customer` (`id_customer`),
-  CONSTRAINT `FKqtivt0sk6wf3ftdlxvespj6up` FOREIGN KEY (`review_id`) REFERENCES `product` (`id_product`)
+  KEY `FKiyof1sindb9qiqr9o8npj8klt` (`product_id`),
+  CONSTRAINT `FKiyof1sindb9qiqr9o8npj8klt` FOREIGN KEY (`product_id`) REFERENCES `product` (`id_product`),
+  CONSTRAINT `FKqng4q0dcx13ufedmbv0p6rlo4` FOREIGN KEY (`customer_id_customer`) REFERENCES `customer` (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-29 22:52:28
+-- Dump completed on 2021-08-02  0:56:07

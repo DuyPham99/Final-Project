@@ -27,7 +27,7 @@ CREATE TABLE `order_detail` (
   `amount` int NOT NULL,
   `discount` bigint NOT NULL,
   `price` float NOT NULL,
-  `product_id` bigint DEFAULT NULL,
+  `product_id` bigint NOT NULL,
   PRIMARY KEY (`id_order_detail`),
   KEY `FKb8bg2bkty0oksa3wiq5mp5qnc` (`product_id`),
   CONSTRAINT `FKb8bg2bkty0oksa3wiq5mp5qnc` FOREIGN KEY (`product_id`) REFERENCES `product` (`id_product`)
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-29 22:52:29
+-- Dump completed on 2021-08-02  0:56:05
