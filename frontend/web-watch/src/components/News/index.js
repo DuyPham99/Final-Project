@@ -5,7 +5,7 @@ import tintuc1 from 'assets/images/tintuc1.jpg';
 import tintuc2 from 'assets/images/tintuc2.jpg';
 import tintuc3 from 'assets/images/tintuc3.jpg';
 import tintuc4 from 'assets/images/tintuc4.jpg';
-import tintuc5 from 'assets/images/tintuc5jpg';
+import tintuc5 from 'assets/images/tintuc5.jpg';
 
 function News() {
     return (

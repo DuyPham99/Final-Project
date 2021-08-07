@@ -7,7 +7,7 @@
             "actions/*": [
                 "actions/*"
             ],
-            "api/"*: [
+            "api/*": [
                 "api/*"
             ],
             "app/*": [
@@ -30,7 +30,7 @@
             ],
             "utils/*": [
                 "utils/*"
-            ],
+            ]
         }
     },
     "include": [
