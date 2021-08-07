@@ -1,0 +1,66 @@
+.details {
+    &__img {
+        margin: 30px 0;
+        cursor: pointer;
+    }
+    &__img img {
+        width: 350px;
+        height: 350px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    &__info {
+        margin: 30px 0;
+        line-height: 1.8;
+        &-title {
+            font-size: 25px;
+            font-weight: 600;
+            margin: 0;
+        }
+        &-des {
+            font-size: 18px;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+        }
+        &-price {
+            margin: 0;
+            font-size: 25px;
+            color: red;
+            font-weight: 600;
+        }
+        &-rating {
+            color: goldenrod;
+            font-size: 14px;
+        }
+    }
+    &__btn {
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        & &-add {
+            font-size: 15px;
+            border-radius: 4px;
+            color: white;
+            background-color: #c00;
+        }
+        & button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px 0;
+            font-size: 15px;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: gray;
+            border: none;
+            outline: none;
+            opacity: 0.9;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

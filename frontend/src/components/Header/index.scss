@@ -1,0 +1,150 @@
+@import "../../assets/scss/variable";
+@mixin hover {
+    cursor: pointer;
+}
+.header {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+    background-color: $color;
+    box-sizing: border-box;
+    &__account {
+        background-color: #ccc;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-end;
+        padding-right: calc(100vw - 1280px);
+        & a {
+            color: darkslategray;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        &-login,
+        &-register {
+            font-size: 14px;
+            cursor: pointer;
+            &:hover {
+                color: #c00;
+            }
+        }
+    }
+    &__nav {
+        height: $height;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+        & a {
+            text-decoration: none;
+        }
+    }
+    &__search {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &-input {
+            outline: none;
+            border: none;
+            padding: 6px;
+            font-weight: 350;
+            font-size: 15px;
+            color: gray;
+            border-radius: 4px 0 0 4px;
+        }
+        &-button {
+            background-color: red;
+            outline: none;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        line-height: $height;
+
+        &:hover {
+            @include hover();
+        }
+        p {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+            font-style: oblique;
+            color: white;
+            &:hover span {
+                transition: all ease-in 0.35s;
+                @include hover();
+            }
+            span {
+                color: tomato;
+                font-size: 30px;
+            }
+        }
+
+        img {
+            width: 45px;
+            color: white;
+        }
+    }
+    &__links {
+        &-list {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            list-style: none;
+            line-height: $height;
+            color: white;
+        }
+        &-items {
+            margin: 0 2px;
+            font-size: 17px;
+            padding: 0 10px;
+
+            & a {
+                width: 100%;
+                color: mistyrose;
+                padding: 14px 10px;
+                cursor: pointer;
+                &:hover,
+                &.active {
+                    font-weight: 700;
+                    border-bottom: 2px solid mistyrose;
+                    border-radius: 4px;
+                    transition: all ease-in 0.25s;
+                }
+            }
+        }
+    }
+    &__cart {
+        margin: auto 0;
+        position: relative;
+        &:hover {
+            @include hover();
+        }
+        &-title {
+            font-size: 15px;
+        }
+        span {
+            position: absolute;
+            left: 13px;
+            top: -6px;
+            background-color: red;
+            color: #ffe4e1;
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            line-height: 17px;
+            text-align: center;
+        }
+    }
+}

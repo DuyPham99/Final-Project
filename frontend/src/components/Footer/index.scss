@@ -1,0 +1,45 @@
+@import "../../assets/scss/variable";
+.footer {
+    position: relative;
+    bottom: 0;
+    border-top: 1px solid red;
+    &__nav {
+        margin: 0 auto;
+        h4 {
+            color: red;
+            font-weight: 700;
+        }
+        .footer__info-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            color: $color-footer;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .footer_info-item {
+            display: flex;
+            align-items: center;
+        }
+        .footer_info-tittle:hover {
+            cursor: pointer;
+            color: red;
+        }
+        .footer_info-item.marginTop {
+            margin-top: 10px;
+            color: #333;
+            cursor: pointer;
+        }
+        .footer_info-link {
+            cursor: pointer;
+        }
+        .footer_info-tittle-end {
+            color: $color-footer;
+            font-weight: 600;
+            border-top: 1px solid red;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

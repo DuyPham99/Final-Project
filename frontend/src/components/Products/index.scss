@@ -1,0 +1,43 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    &__title {
+        position: relative;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 18px;
+        font-weight: 600;
+        opacity: 0.9;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 140%;
+            transform: translate(-50%, -140%);
+            width: 180px;
+            height: 1px;
+            background-color: red;
+        }
+    }
+    &__more {
+        margin: 20px 0 40px 0;
+        padding: 11px 32px;
+        display: block;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 300;
+        outline: none;
+        border: none;
+        background-color: #e9ecef;
+        color: #8392a5;
+        overflow: hidden;
+        &:hover {
+            font-weight: 700;
+            background-color: #dee2e6;
+        }
+    }
+}

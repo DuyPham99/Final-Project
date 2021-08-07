@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "baseUrl": "./src",
+        "paths": {
+            "actions/*": [
+                "actions/*"
+            ],
+            "api/"*: [
+                "api/*"
+            ],
+            "app/*": [
+                "app/*"
+            ],
+            "assets/*": [
+                "assets/*"
+            ],
+            "components/*": [
+                "components/*"
+            ],
+            "contants/*": [
+                "contants/*"
+            ],
+            "pages/*": [
+                "pages/*"
+            ],
+            "reducers/*": [
+                "reducers/*"
+            ],
+            "utils/*": [
+                "utils/*"
+            ],
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
