@@ -1,0 +1,64 @@
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    &__img {
+        margin: 30px 0;
+        border: 1px solid lightgray;
+        cursor: pointer;
+    }
+    &__img img {
+        width: 350px;
+        height: 350px;
+    }
+    &__info {
+        max-width: 350px;
+        line-height: 1.8;
+        &-title {
+            font-size: 25px;
+            font-weight: 600;
+            margin: 0;
+        }
+        &-des {
+            font-size: 18px;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+        }
+        &-price {
+            margin: 0;
+            font-size: 25px;
+            color: tomato;
+            font-weight: 600;
+        }
+        &-rating {
+            color: goldenrod;
+            font-size: 14px;
+        }
+    }
+    &__btn {
+        display: flex;
+        flex-direction: column;
+        min-width: 100%;
+        & &-add {
+            background-color: tomato;
+        }
+        & button {
+            width: 100%;
+            margin: 10px 0;
+            font-size: 20px;
+            padding: 10px 0;
+            cursor: pointer;
+            background-color: gray;
+            opacity: 0.8;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}

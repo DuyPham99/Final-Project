@@ -1,0 +1,41 @@
+.products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &__title {
+        position: relative;
+        text-align: center;
+        margin: 20px 0;
+        font-size: 25px;
+        font-weight: 500;
+        opacity: 0.9;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 140%;
+            transform: translate(-50%, -140%);
+            width: 180px;
+            height: 1px;
+            background-color: tomato;
+        }
+    }
+    &__more {
+        display: block;
+        margin: 20px auto 30px auto;
+        padding: 6px;
+        min-width: 200px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        border: 1px solid tomato;
+        color: tomato;
+    }
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

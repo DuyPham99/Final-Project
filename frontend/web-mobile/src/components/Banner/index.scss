@@ -1,0 +1,36 @@
+.banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__title {
+        text-shadow: 3px 5px red;
+        color: tomato;
+        letter-spacing: 0.2rem;
+        font-style: italic;
+        margin-top: -50px;
+        font-size: 20px;
+        padding: 10px;
+        animation-name: texts;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes texts {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

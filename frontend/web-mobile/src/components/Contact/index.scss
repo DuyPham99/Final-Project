@@ -1,0 +1,42 @@
+.contact {
+    &__title {
+        margin: 20px 0 20px 50px;
+        font-size: 30px;
+        font-weight: 500;
+        opacity: 0.9;
+    }
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__map {
+        margin-bottom: 20px;
+    }
+    &__des {
+        background-color: white;
+        box-shadow: 3px 5px 3px 5px lightgray;
+        &-title {
+            margin-left: 10px;
+            p {
+                font-weight: 600;
+                margin: 4px 0;
+            }
+            span {
+                font-size: 16px;
+                opacity: 0.8;
+            }
+        }
+    }
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding-right: 10px;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        margin: 20px 0;
+    }
+}
