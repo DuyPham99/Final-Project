@@ -3,10 +3,11 @@ package com.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-public class Review {
+public class Review implements Serializable {
     @Id
     private long id_review;
 

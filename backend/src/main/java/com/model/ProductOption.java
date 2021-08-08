@@ -1,6 +1,7 @@
 package com.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
 public class ProductOption {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idProductOption;
+    private Long idProductOption;
 
     private float price;
 
@@ -23,16 +24,17 @@ public class ProductOption {
 
     private String images;
 
-    @OneToOne(mappedBy = "productOption", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "productOption")
     private Sale sale;
 
     @OneToOne(mappedBy = "productOption")
     private Stock stock;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     @Getter(value = AccessLevel.NONE)
     @JsonBackReference
+    @JsonIgnore
     private Product product;
 
     @Override
