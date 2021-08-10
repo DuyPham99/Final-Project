@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `status` int NOT NULL,
+  `status` int NOT NULL DEFAULT '0',
   `role_id` bigint DEFAULT NULL,
   PRIMARY KEY (`username`),
   KEY `FKd4vb66o896tay3yy52oqxr9w0` (`role_id`),
@@ -39,6 +39,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES ('duy123','123',1,1);
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-02  0:56:07
+-- Dump completed on 2021-08-10 23:45:21

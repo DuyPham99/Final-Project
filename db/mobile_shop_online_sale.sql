@@ -26,6 +26,8 @@ CREATE TABLE `sale` (
   `id_sale` bigint NOT NULL,
   `discount` bigint NOT NULL,
   `product_option_id` bigint DEFAULT NULL,
+  `date_end` date DEFAULT NULL,
+  `date_start` date DEFAULT NULL,
   PRIMARY KEY (`id_sale`),
   KEY `FK51koliwkykfpya7gru0knmlk2` (`product_option_id`),
   CONSTRAINT `FK51koliwkykfpya7gru0knmlk2` FOREIGN KEY (`product_option_id`) REFERENCES `product_option` (`id_product_option`)
@@ -38,6 +40,7 @@ CREATE TABLE `sale` (
 
 LOCK TABLES `sale` WRITE;
 /*!40000 ALTER TABLE `sale` DISABLE KEYS */;
+INSERT INTO `sale` VALUES (168,10,145,'2021-08-11','2021-08-10'),(171,10,145,'2021-08-11','2021-08-10');
 /*!40000 ALTER TABLE `sale` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-02  0:56:08
+-- Dump completed on 2021-08-10 23:45:22

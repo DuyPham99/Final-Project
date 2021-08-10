@@ -28,6 +28,7 @@ CREATE TABLE `product` (
   `name` varchar(255) DEFAULT NULL,
   `published` date DEFAULT NULL,
   `brand_id` bigint DEFAULT NULL,
+  `status` int DEFAULT '0',
   PRIMARY KEY (`id_product`),
   KEY `FKs6cydsualtsrprvlf2bb3lcam` (`brand_id`),
   CONSTRAINT `FKs6cydsualtsrprvlf2bb3lcam` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id_brand`)
@@ -40,6 +41,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
+INSERT INTO `product` VALUES (0,NULL,'IPhone 8','2021-08-08',1,0),(137,NULL,'IPhone 8','2021-08-08',1,1),(140,NULL,'IPhone 8','2021-08-08',1,0),(1133,NULL,'IPhone 8','2021-08-08',1,0);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-02  0:56:07
+-- Dump completed on 2021-08-10 23:45:22

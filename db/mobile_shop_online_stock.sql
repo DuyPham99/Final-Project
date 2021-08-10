@@ -26,7 +26,7 @@ CREATE TABLE `stock` (
   `id_stock` bigint NOT NULL,
   `amount` bigint DEFAULT NULL,
   `date_input` datetime DEFAULT NULL,
-  `status` int DEFAULT NULL,
+  `status` int DEFAULT '0',
   `product_option_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id_stock`),
   KEY `FKn5dwnfcxifgxmnynim7fannng` (`product_option_id`),
@@ -40,6 +40,7 @@ CREATE TABLE `stock` (
 
 LOCK TABLES `stock` WRITE;
 /*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+INSERT INTO `stock` VALUES (164,10,'2021-08-08 12:30:00',0,145);
 /*!40000 ALTER TABLE `stock` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-02  0:56:06
+-- Dump completed on 2021-08-10 23:45:21
