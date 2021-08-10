@@ -10,6 +10,7 @@ import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ import java.util.Set;
 @Data
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
+    @NotEmpty
     private long idProduct;
 
     @NotNull
@@ -36,6 +37,8 @@ public class Product {
     @OneToOne
     @JoinColumn(name = "brand_id")
     private Brand brand;
+
+    private int status;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Review> reviews = new ArrayList<>();

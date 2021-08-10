@@ -40,4 +40,9 @@ public class ProductOptionServiceImpl implements ProductOptionService {
     public ProductOption findById(long id) {
         return null;
     }
+
+    @Override
+    public void update(ProductOption obj) {
+
+    }
 }

@@ -8,6 +8,7 @@ const axiosCLient = axios.create({
     //sử dụng cho phân trang hoặc filter
     paramsSerializer: params => queryString.stringify(params),
 });
+
 axiosCLient.interceptors.request.use(async (config) => {
     const accessToken = localStorage.getItem("token");
     config.headers.authorization = `Bearer ${accessToken}`;
@@ -15,6 +16,7 @@ axiosCLient.interceptors.request.use(async (config) => {
 }, error => {
     return Promise.reject(error);
 });
+
 axiosCLient.interceptors.response.use((response) => {
     if (response && response.data) {
         return response.data;
@@ -23,4 +25,5 @@ axiosCLient.interceptors.response.use((response) => {
 }, (error) => {
     throw error;
 });
+
 export default axiosCLient;

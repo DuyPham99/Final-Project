@@ -1,7 +1,5 @@
 package com.service;
 
-import com.model.Product;
-
 import java.util.List;
 
 public interface Service<T> {
@@ -9,4 +7,5 @@ public interface Service<T> {
     List<T> findAll();
     void deleteById(long id);
     T findById(long id);
+    void update(T obj);
 }

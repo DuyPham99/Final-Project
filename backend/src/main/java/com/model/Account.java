@@ -50,6 +50,9 @@ public class Account {
         this.role = role;
     }
 
+    public static final int ACTIVE = 0;
+    public static final int INACTIVE = 1;
+
     @Override
     public String toString() {
         return "Account{" +
@@ -59,4 +62,5 @@ public class Account {
                 ", role=" + role +
                 '}';
     }
+
 }

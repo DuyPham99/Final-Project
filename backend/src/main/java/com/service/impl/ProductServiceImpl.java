@@ -1,6 +1,5 @@
 package com.service.impl;
 
-import com.dto.ProductDto;
 import com.model.Product;
 import com.repository.BrandRepository;
 import com.repository.ProductRepository;
@@ -8,10 +7,12 @@ import com.service.ProductOptionService;
 import com.service.ProductService;
 import com.service.WarrantyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -30,14 +31,17 @@ public class ProductServiceImpl implements ProductService {
     WarrantyService warrantyService;
 
     @Override
-    public void save(Product productDto) {
-        Product product = new Product();
+    public void save(Product product) {
 
-        productDto.getWarranty().setProduct(product);
-        productDto.getProductOptions().forEach(x -> {
+        productRepository.findById(product.getIdProduct()).ifPresent(x -> {
+            throw new DuplicateKeyException("The id already exist!");
+        });
+
+        product.getWarranty().setProduct(product);
+        product.getProductOptions().forEach(x -> {
             x.setProduct(product);
         });
-        product.setProductOptions(productDto.getProductOptions());
+        product.setProductOptions(product.getProductOptions());
 
         productRepository.save(product);
     }
@@ -49,7 +53,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteById(long id) {
-
+        Product product = productRepository.getById(id);
+        product.setStatus(1);
+        productRepository.save(product);
     }
 
     @Override
@@ -57,5 +63,25 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findById(id).orElseThrow(NullPointerException::new);
     }
 
+    @Override
+    public void update(Product obj) {
+        Optional<Product> product =  productRepository.findById(obj.getIdProduct());
+        if (product.isPresent()) {
+            if(!obj.getName().isEmpty()){
+                product.get().setName(obj.getName());
+            }
 
+            if(!obj.getDescription().isEmpty()){
+                product.get().setDescription(obj.getDescription());
+            }
+
+            if(obj.getPublished() != null){
+                product.get().setPublished(obj.getPublished());
+            }
+
+            productRepository.save(product.get());
+        } else {
+            throw new NullPointerException();
+        }
+    }
 }

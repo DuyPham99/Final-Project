@@ -6,6 +6,8 @@ import lombok.*;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "product_option")
 @Data
@@ -24,10 +26,12 @@ public class ProductOption {
 
     private String images;
 
-    @OneToOne(mappedBy = "productOption")
-    private Sale sale;
+    @OneToMany(mappedBy = "productOption")
+    @JsonIgnore
+    private List<Sale> sale = new ArrayList<>();
 
     @OneToOne(mappedBy = "productOption")
+    @JsonIgnore
     private Stock stock;
 
     @ManyToOne(cascade = CascadeType.ALL)

@@ -1,5 +1,5 @@
 import './index.scss';
-import logo from '../../assets/images/logolaptop.png';
+import logo from '../../assets/images/mac.png';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SearchIcon from '@material-ui/icons/Search';
 import { NavLink } from 'react-router-dom';
@@ -18,21 +18,21 @@ function Header() {
     console.log(login.accessToken);
     return (
         <div className="header">
-            <div className="header__account">
+            {/* <div className="header__account">
                 <AccountCircleOutlinedIcon style={{ margin: '0 2px' }} />
                 <NavLink to="/dangnhap"><span className="header__account-login">Đăng nhập</span></NavLink>
                 <span style={{ margin: '0 4px', fontSize: '12px' }}>|</span>
                 <NavLink to="/dangki"><span className="header__account-register">Đăng kí</span></NavLink>
-            </div>
+            </div> */}
             <Container fixed>
 
                 <div className="header__nav">
                     <NavLink to='/' exact >
                         <div className="header__logo">
-                            <img src={logo} alt='Logo'></img>
+                            {/* <img src="" alt='Logo'></img> */}
                             <p>
-                                <span>L</span>
-                                aptop.vn
+                                <span>M</span>
+                                ac.vn
                             </p>
                         </div>
                     </NavLink>

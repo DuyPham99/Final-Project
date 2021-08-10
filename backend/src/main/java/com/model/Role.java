@@ -6,16 +6,16 @@ import javax.persistence.Id;
 @Entity
 public class Role {
     @Id
-    private long id_role;
+    private long idRole;
 
     private String name;
 
-    public long getId_role() {
-        return id_role;
+    public long getIdRole() {
+        return idRole;
     }
 
-    public void setId_role(long id_role) {
-        this.id_role = id_role;
+    public void setIdRole(long idRole) {
+        this.idRole = idRole;
     }
 
     public String getName() {
@@ -29,7 +29,7 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "id_role=" + id_role +
+                "id_role=" + idRole +
                 ", name='" + name + '\'' +
                 '}';
     }

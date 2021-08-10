@@ -1,17 +1,23 @@
 package com.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity(name = "stock")
+@Data
 public class Stock {
     @Id
-    private long id_stock;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idStock;
 
     @Column
     private long amount;
 
-    @Column
+    @Column(name = "date_input")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime dateInput;
 
     @Column
@@ -21,50 +27,10 @@ public class Stock {
     @JoinColumn(name = "product_option_id")
     private ProductOption productOption;
 
-    public long getId_stock() {
-        return id_stock;
-    }
-
-    public void setId_stock(long id_stock) {
-        this.id_stock = id_stock;
-    }
-
-    public long getAmount() {
-        return amount;
-    }
-
-    public void setAmount(long amount) {
-        this.amount = amount;
-    }
-
-    public LocalDateTime getDateInput() {
-        return dateInput;
-    }
-
-    public void setDateInput(LocalDateTime dateInput) {
-        this.dateInput = dateInput;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public ProductOption getProductOption() {
-        return productOption;
-    }
-
-    public void setProductOption(ProductOption productOption) {
-        this.productOption = productOption;
-    }
-
     @Override
     public String toString() {
         return "Stock{" +
-                "id_stock=" + id_stock +
+                "id_stock=" + idStock +
                 ", amount=" + amount +
                 ", dateInput=" + dateInput +
                 ", status=" + status +

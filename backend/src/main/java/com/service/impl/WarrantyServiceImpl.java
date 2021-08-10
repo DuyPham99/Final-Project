@@ -36,4 +36,9 @@ public class WarrantyServiceImpl implements WarrantyService {
 
         return null;
     }
+
+    @Override
+    public void update(Warranty obj) {
+
+    }
 }

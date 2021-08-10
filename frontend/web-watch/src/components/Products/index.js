@@ -5,16 +5,21 @@ import Product from '../Product/index';
 import { Grid, Container } from '@material-ui/core';
 import '../Products/index.scss';
 function Products() {
+
     const data = useSelector(state => state.allProduct.products);
     console.log(data);
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchProducts());
     }, []);
+
     const [visible, setVisible] = useState(8);
+
     const loadMoreProducts = () => {
         setVisible(preValue => preValue + 4);
     }
+    
     return (
         <div className="products">
             <div className="products__title">SẢN PHẨM BÁN CHẠY</div>

@@ -1,4 +1,5 @@
 import axiosCLient from "./axiosClient";
+
 const productsApi = {
     getALl: (param) => {
         const url = '/sanpham';
@@ -9,4 +10,5 @@ const productsApi = {
         return axiosCLient.get(url);
     }
 }
+
 export default productsApi;

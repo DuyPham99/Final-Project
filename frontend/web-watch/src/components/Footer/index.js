@@ -95,7 +95,7 @@ function Footer() {
                             </ul>
                         </Grid>
                         <Grid item xs={12}>
-                            <span className="footer_info-tittle-end">Copyright by Laptop.vn® Since 2021</span>
+                            <span className="footer_info-tittle-end">Copyright by Mac.vn® Since 2021</span>
                         </Grid>
                     </Grid>
 
