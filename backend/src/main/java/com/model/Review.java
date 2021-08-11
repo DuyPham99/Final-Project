@@ -7,9 +7,10 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
+@Data
 public class Review implements Serializable {
     @Id
-    private long id_review;
+    private long idReview;
 
     private String feedback;
 
@@ -17,23 +18,15 @@ public class Review implements Serializable {
 
     private LocalDateTime date;
 
-    @OneToOne
+    private Long orderId;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-//    private Order order;
 
-    @Override
-    public String toString() {
-        return "Review{" +
-                "id_review=" + id_review +
-                ", feedback='" + feedback + '\'' +
-                ", rating=" + rating +
-                ", date=" + date +
-                ", customer=" + customer +
-                '}';
-    }
 }
 

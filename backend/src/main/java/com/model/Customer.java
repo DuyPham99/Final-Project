@@ -1,12 +1,17 @@
 package com.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Data
 public class Customer {
     @Id
-    private long id_customer;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idCustomer;
 
     private String name;
 
@@ -16,54 +21,28 @@ public class Customer {
 
     private int status;
 
-    public long getId_customer() {
-        return id_customer;
-    }
+    @OneToMany(mappedBy = "customer")
+    List<Review> reviews = new ArrayList<>();
 
-    public void setId_customer(long id_customer) {
-        this.id_customer = id_customer;
-    }
+    public enum STATUS {
+        ACTIVE(0), INACTIVE(1);
+        int value;
 
-    public String getName() {
-        return name;
-    }
+        STATUS(int value) {
+            this.value = value;
+        }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+        public int getValue() {
+            return value;
+        }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone_number() {
-        return phone_number;
-    }
-
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id_customer=" + id_customer +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", phone_number='" + phone_number + '\'' +
-                ", status=" + status +
-                '}';
+        public static String getStatus(int value) {
+            for (Customer.STATUS d : Customer.STATUS.values()) {
+                if (d.value == value) {
+                    return d.name();
+                }
+            }
+            return null;
+        }
     }
 }

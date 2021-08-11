@@ -1,79 +1,69 @@
 package com.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
 @Entity
+@Data
 public class Shipping {
     @Id
-    private long id_shipping;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long idShipping;
 
+    @NotEmpty
     private String shipVia;
 
-    private LocalDateTime start_time;
+    @NotEmpty
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
+    private LocalDateTime startTime;
 
-    private LocalDateTime end_time;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
+    private LocalDateTime endTime;
 
     private String description;
 
     private int status;
 
-    public long getId_shipping() {
-        return id_shipping;
-    }
+    public enum SHIPPING_STATUS{
+        PROCESSING(0),
+        SENT(1),
+        DELIVERY(2),
+        SHIPPING(3);
 
-    public void setId_shipping(long id_shipping) {
-        this.id_shipping = id_shipping;
-    }
+        int value;
 
-    public String getShipVia() {
-        return shipVia;
-    }
+        SHIPPING_STATUS(int value) {
+            this.value = value;
+        }
 
-    public void setShipVia(String shipVia) {
-        this.shipVia = shipVia;
-    }
+        public int getValue() {
+            return value;
+        }
 
-    public LocalDateTime getStart_time() {
-        return start_time;
-    }
-
-    public void setStart_time(LocalDateTime start_time) {
-        this.start_time = start_time;
-    }
-
-    public LocalDateTime getEnd_time() {
-        return end_time;
-    }
-
-    public void setEnd_time(LocalDateTime end_time) {
-        this.end_time = end_time;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
+        public static String getStatus(int value) {
+            for (SHIPPING_STATUS d : SHIPPING_STATUS.values()) {
+                if (d.value == value) {
+                    return d.name();
+                }
+            }
+            return null;
+        }
     }
 
     @Override
     public String toString() {
         return "Shipping{" +
-                "id_shipping=" + id_shipping +
+                "id_shipping=" + idShipping +
                 ", shipVia='" + shipVia + '\'' +
-                ", start_time=" + start_time +
-                ", end_time=" + end_time +
+                ", start_time=" + startTime +
+                ", end_time=" + endTime +
                 ", description='" + description + '\'' +
                 ", status=" + status +
                 '}';
