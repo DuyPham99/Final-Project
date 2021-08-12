@@ -1,14 +1,18 @@
 package com.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Data
+@Table(name = "order_")
 public class Order{
     @Id
-    private long id_order;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idOrder;
 
     private int status;
 
@@ -16,79 +20,18 @@ public class Order{
     @JoinColumn(name = "account_id")
     private Account account;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id")
     private Payment payment;
 
-    @OneToOne
-    @JoinColumn(name = "order_detail_id")
-    private OrderDetail orderDetail;
+    @OneToMany( mappedBy = "order",cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shipping_id")
     private Shipping shipping;
-
-    public long getId_order() {
-        return id_order;
-    }
-
-    public void setId_order(long id_order) {
-        this.id_order = id_order;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public OrderDetail getOrderDetail() {
-        return orderDetail;
-    }
-
-    public void setOrderDetail(OrderDetail orderDetail) {
-        this.orderDetail = orderDetail;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id_order=" + id_order +
-                ", status=" + status +
-                ", account=" + account +
-                ", payment=" + payment +
-                ", orderDetail=" + orderDetail +
-                ", customer=" + customer +
-                '}';
-    }
 }

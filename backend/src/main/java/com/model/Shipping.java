@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-public class Shipping {
+public class Shipping implements Cloneable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idShipping;
@@ -57,15 +57,8 @@ public class Shipping {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Shipping{" +
-                "id_shipping=" + idShipping +
-                ", shipVia='" + shipVia + '\'' +
-                ", start_time=" + startTime +
-                ", end_time=" + endTime +
-                ", description='" + description + '\'' +
-                ", status=" + status +
-                '}';
+    public Object clone() throws CloneNotSupportedException
+    {
+        return super.clone();
     }
 }
