@@ -1,0 +1,12 @@
+.row-products {
+    background-color: #fff;
+}
+
+.size-block-product {
+    width: 240px !important;
+}
+
+.product-link {
+    color: #000000;
+    text-decoration: none !important; /* no underline */
+}

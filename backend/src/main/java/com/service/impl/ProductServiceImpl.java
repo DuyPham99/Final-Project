@@ -8,6 +8,7 @@ import com.service.ProductService;
 import com.service.WarrantyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,6 +50,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAll() {
         return productRepository.findAll();
+    }
+
+    public List<Product> findAllByBrandName(String name){
+        return productRepository.findAllByBrandName(name, PageRequest.ofSize(8));
     }
 
     @Override

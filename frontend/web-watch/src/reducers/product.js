@@ -7,6 +7,9 @@ const productReducer = (state = initialState, { type, payload }) => {
         case actionTypes.FETCH_PRODUCTS: {
             return { ...state, products: payload };
         }
+        case actionTypes.GET_PRODUCTS_BY_BRAND: {
+            return { ...state, products: payload };
+        }
         default:
             return state;
     }

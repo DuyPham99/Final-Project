@@ -1,0 +1,1 @@
+mysqldump -u root -p mobile_shop_online > D:\Internship-Project\Final-Project\db\backup.sql

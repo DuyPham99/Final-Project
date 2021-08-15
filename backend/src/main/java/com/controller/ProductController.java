@@ -4,6 +4,7 @@ import com.dto.ProductDto;
 import com.github.dozermapper.core.Mapper;
 import com.model.Brand;
 import com.model.Product;
+import com.repository.ProductRepository;
 import com.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -28,9 +29,16 @@ public class ProductController implements ControllerGeneric<ProductDto> {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/brand/{brand}")
+    public List<ProductDto> getListProductsByBrand(@PathVariable String brand) {
+        return productService.findAllByBrandName(brand).stream()
+                .map(x -> mapper.map(x, ProductDto.class))
+                .collect(Collectors.toList());
+    }
+
     @Override
-    public ProductDto get(long id) {
-        return null;
+    public ProductDto get(@PathVariable long id) {
+        return mapper.map(productService.findById(id), ProductDto.class);
     }
 
     @Override

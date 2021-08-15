@@ -13,7 +13,7 @@ import Container from '@material-ui/core/Container';
 function Footer() {
     return (
         <div className="footer">
-            <Container fixed>
+            <Container fixed className="mt-3">
                 <div className="footer__nav">
                     <Grid container spacing={2}>
                         <Grid item xs={3}>
