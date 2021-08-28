@@ -1,11 +1,12 @@
-import './index.scss';
-import logo from '../../assets/images/mac.png';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import SearchIcon from '@material-ui/icons/Search';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { Container } from '@material-ui/core';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import SearchIcon from '@material-ui/icons/Search';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useState } from 'react';
+import 'react-dropdown/style.css';
+import { useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+import './index.scss';
+
 function Header() {
     const style = {
         alignItems: 'center',
@@ -15,7 +16,13 @@ function Header() {
     }
     const cart = useSelector(state => state.cart.cartItems);
     const login = useSelector(state => state.login);
-    console.log(login.accessToken);
+    const [isShow, setShow] = useState(false);
+
+    const options = [
+        'IPhone', 'Samsung', 'Xiaomi'
+    ];
+    const defaultOption = options[0];
+
     return (
         <div className="header-nav">
             {/* <div className="header__account">
@@ -45,16 +52,23 @@ function Header() {
                     <div className="header-nav__links">
                         <ul className="header-nav__links-list">
                             <li className="header-nav__links-items">
-                                <NavLink to='/' exact activeClassName="active"> Trang chủ</NavLink>
+                                <NavLink to='/' exact activeClassName="active" onClick={() => setShow(false)}> Trang chủ</NavLink>
                             </li>
                             <li className="header-nav__links-items">
-                                <NavLink to='/sanpham' activeClassName="active">Sản phẩm</NavLink>
+                                <a className="" onClick={() => setShow(!isShow)}>Sản phẩm</a>
+                                { isShow == true &&
+                                <ul className="subform" >
+                                    <li><Link to='/sanpham/iphone' style={{color: "black"}} onClick={() => setShow(false)}>IPhone</Link></li>
+                                    <li><Link to='/sanpham/samsung' style={{color: "black"}} onClick={() => setShow(false)}>Samsung</Link></li>
+                                    <li><Link to='/sanpham/xiaomi' style={{color: "black"}} onClick={() => setShow(false)}>Xiaomi</Link></li>
+                                </ul>
+                                }
                             </li>
                             <li className="header-nav__links-items">
-                                <NavLink to='/tintuc'> Tin tức</NavLink>
+                                <NavLink to='/tintuc' onClick={() => setShow(false)}> Tin tức</NavLink>
                             </li>
                             <li className="header-nav__links-items">
-                                <NavLink to='/lienhe'> Liên hệ</NavLink>
+                                <NavLink to='/lienhe' onClick={() => setShow(false)}> Liên hệ</NavLink>
                             </li>
                         </ul>
                     </div>

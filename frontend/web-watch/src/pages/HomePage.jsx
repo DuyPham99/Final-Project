@@ -9,6 +9,7 @@ import Details from '../components/Details/index';
 import Products from '../components/Products/index';
 import './index.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ProductPage from 'components/ProductPage';
 
 function HomePage() {
     return (
@@ -22,8 +23,8 @@ function HomePage() {
                         <Route path='/dangnhap' component={Login}></Route>
                         <Route path='/lienhe' component={Contact}></Route>
                         <Route path='/giohang' component={Cart}></Route>
-                        <Route path='/sanpham' component={Products} />
-                        <Route path='/details/:id' component={Details} />
+                        <Route extract path='/sanpham/:idProduct' component={ProductPage} />
+                        <Route path='/products/:id' component={Details} />
                     </Switch>
                 </div>
             </Router>

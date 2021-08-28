@@ -54,8 +54,8 @@ public class ShippingServiceImpl implements ShippingService {
             shipping.setEndTime(obj.getEndTime());
         }
 
-        if(!obj.getShipVia().isEmpty()){
-            shipping.setShipVia(obj.getShipVia());
+        if(!obj.getShipType().isEmpty()){
+            shipping.setShipType(obj.getShipType());
         }
 
         if(obj.getStatus() != 0){

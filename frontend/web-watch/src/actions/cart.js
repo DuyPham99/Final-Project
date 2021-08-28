@@ -3,7 +3,7 @@ export const addToCart = (product) => async (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice();
     let alreadyExists = false;
     cartItems.forEach((x) => {
-        if (x.idSP === product.idSP) {
+        if (x.idProduct === product.idProduct) {
             alreadyExists = true;
             alert('Sản phẩm đã có trong giỏ hàng! Thêm số lượng sản phẩm vào giỏ hàng thành công!')
             x.soluong++;
@@ -24,14 +24,14 @@ export default addToCart;
 
 export const removeItem = (product) => async (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice()
-        .filter((x) => x.idSP !== product.idSP);
+        .filter((x) => x.idProduct !== product.idProduct);
     dispatch({ type: actionTypes.REMOVE_ITEM, payload: { cartItems } });
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
 };
 export const increaseItem = (product) => async (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice()
         .map(item => {
-            if (item.idSP === product.idSP) {
+            if (item.idProduct === product.idProduct) {
                 item = { ...item, soluong: item.soluong + 1 }
             }
             return item;
@@ -44,7 +44,7 @@ export const increaseItem = (product) => async (dispatch, getState) => {
 export const decreaseItem = (product) => async (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice()
         .map(item => {
-            if (item.idSP === product.idSP) {
+            if (item.idProduct === product.idProduct) {
                 item = { ...item, soluong: item.soluong === 1 ? item.soluong = 1 : item.soluong - 1 }
 
             }

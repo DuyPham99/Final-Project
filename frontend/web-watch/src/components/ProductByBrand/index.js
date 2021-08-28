@@ -1,11 +1,11 @@
 import { StarFilled } from '@ant-design/icons';
-import { getProductsByBrand } from 'actions/product';
+import addToCart from 'actions/cart';
 import productsApi from 'api/productsApi';
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Card, Icon, Image } from 'semantic-ui-react'
+import { Button, Card, Image } from 'semantic-ui-react';
 import { currencyFormatVN } from 'utils/format';
 import '../ProductByBrand/index.css';
 
@@ -41,7 +41,7 @@ function ProductByCategory(props) {
                                 />
                                 <Card.Content>
                                     <Card.Header>
-                                        <Link to={`/details/${product.idProduct}`}><h5 className="product-link" >{product.name}</h5></Link>
+                                        <Link to={`/products/${product.idProduct}`} style={{ textDecoration: "none" }}><h5 className="product-link" >{product.name}</h5></Link>
                                     </Card.Header>
                                     <Card.Meta>
                                         <span className='date'></span>
@@ -60,7 +60,9 @@ function ProductByCategory(props) {
                                             <StarFilled />
                                         </div>
                                         <Button color='youtube'>
-                                            Mua hàng
+                                            <Link to={`/products/${product.idProduct}`} style={{ textDecoration: "none", color : "white"}}>
+                                                Mua hàng
+                                            </Link>
                                         </Button>
                                     </Row>
                                 </Card.Content>
@@ -68,7 +70,7 @@ function ProductByCategory(props) {
                         )}
                     </Row>
                     <Row >
-                           <Link className="pb-2 d-flex justify-content-end "><p>Xem thêm</p></Link>
+                        <Link className="pb-2 d-flex justify-content-end" to={"/sanpham/" + props.title.toString().toLowerCase()}><p>Xem thêm</p></Link>
                     </Row>
                 </Container>
             </>

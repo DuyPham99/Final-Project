@@ -35,7 +35,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer findById(long id) {
-        return customerRepository.findById(id).orElseThrow(() -> new NullPointerException());
+        return customerRepository.findById(id).get();
+    }
+
+    @Override
+    public Customer findByPhoneNumber(String phoneNumber) {
+        return customerRepository.findByPhoneNumber(phoneNumber);
     }
 
     @Override
@@ -54,8 +59,8 @@ public class CustomerServiceImpl implements CustomerService {
             customer.setName(obj.getName());
         }
 
-        if (!obj.getPhone_number().isEmpty()) {
-            customer.setPhone_number(obj.getPhone_number());
+        if (!obj.getPhoneNumber().isEmpty()) {
+            customer.setPhoneNumber(obj.getPhoneNumber());
         }
 
         customerRepository.save(customer);

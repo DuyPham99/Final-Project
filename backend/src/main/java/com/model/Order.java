@@ -34,4 +34,18 @@ public class Order{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shipping_id")
     private Shipping shipping;
+
+    public enum STATUS {
+        PENDING(0), PROCESS(1), SHIPPING(2), RECEIVED(3);
+
+        int value;
+
+        STATUS(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
 }

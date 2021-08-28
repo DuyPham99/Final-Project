@@ -49,7 +49,7 @@ function Products() {
                 <Container className="mt-5">
                     <ProductByCategory data={data} title="IPhone"/>
                     <ProductByCategory data={data} title="Samsung"/>
-                    <ProductByCategory data={data} title="Xiaomi"/>
+                    {/* <ProductByCategory data={data} title="Xiaomi"/> */}
                 </Container>
             </div>
         </>

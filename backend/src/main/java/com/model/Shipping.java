@@ -18,7 +18,7 @@ public class Shipping implements Cloneable {
     private long idShipping;
 
     @NotEmpty
-    private String shipVia;
+    private String shipType;
 
     @NotEmpty
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy HH:mm")
@@ -55,6 +55,10 @@ public class Shipping implements Cloneable {
             }
             return null;
         }
+    }
+    public enum SHIP_TYPE{
+        SHOP,
+        SHIPPING;
     }
 
     public Object clone() throws CloneNotSupportedException

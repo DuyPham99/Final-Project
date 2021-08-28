@@ -19,7 +19,7 @@ public class OrderDetail {
 
     @OneToOne
     @JoinColumn(name = "product_id")
-    private Product product;
+    private ProductOption productOption;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id")

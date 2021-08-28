@@ -1,5 +1,9 @@
 package com.dto;
 
+import com.model.Customer;
+import com.model.OrderDetail;
+import com.model.Payment;
+import com.model.Shipping;
 import lombok.Data;
 
 import java.util.List;
@@ -8,15 +12,12 @@ import java.util.List;
 public class OrderDto {
     Long idOrder;
 
-    int status;
+    List<OrderDetail> orderDetails;
 
-    Long idAccount;
+    Shipping shipping;
 
-    Long idPayment;
+    Customer customer;
 
-    List<Long> listIdOrderDetail;
+    Payment payment;
 
-    Long idCustomer;
-
-    Long idShipping;
 }

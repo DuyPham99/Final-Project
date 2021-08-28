@@ -17,7 +17,7 @@ public class Customer {
 
     private String address;
 
-    private String phone_number;
+    private String phoneNumber;
 
     private int status;
 

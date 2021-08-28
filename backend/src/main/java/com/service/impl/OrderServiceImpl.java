@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import com.github.dozermapper.core.Mapper;
+import com.model.Customer;
 import com.model.Order;
 import com.model.Payment;
 import com.model.Shipping;
@@ -36,18 +37,16 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void save(Order obj) {
-        Shipping shipping = new Shipping();
+        Customer customer = customerService.findByPhoneNumber(obj.getCustomer().getPhoneNumber());
 
-        try {
-            shipping = (Shipping) shipping.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+        obj.setStatus(Order.STATUS.PENDING.getValue());
+        if (customer != null) {
+            if (customer.getName().equals(obj.getCustomer().getName())
+                    && customer.getPhoneNumber().equals(obj.getCustomer().getPhoneNumber())
+                    && customer.getAddress().equals(obj.getCustomer().getAddress())) {
+                obj.setCustomer(customer);
+            }
         }
-
-        obj.setStatus(0);
-        obj.setShipping(shipping);
-        obj.setAccount(accountService.findByUsername(obj.getAccount().getUsername()));
-        obj.setCustomer(customerService.findById(obj.getCustomer().getIdCustomer()));
 
         orderRepository.save(obj);
     }
@@ -59,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void deleteById(long id) {
-
+        orderRepository.deleteById(id);
     }
 
     @Override
